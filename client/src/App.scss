@@ -1,0 +1,145 @@
+$green: #1DB954;
+$lightgreen: #2fd565;
+$lightgrey: #282828;
+$grey: #181818;
+$textgrey: #a0a0a0;
+$black: #121212;
+$white: #fff;
+
+@mixin all-ease-in($time){
+  transition: all $time ease-in;
+  -webkit-transition: all $time ease-in;
+  -moz-transition: all $time ease-in;
+  -o-transition: all $time ease-in;
+}
+
+@mixin no-transition{
+  transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+}
+
+@mixin transform-translate($transformX, $transformY){
+  transform: translate($transformX, $transformY);
+  -webkit-transform: translate($transformX, $transformY);
+}
+
+@mixin ease-in-out($timing){
+  -webkit-transition: all $timing ease-in-out;
+  -moz-transition: all $timing ease-in-out;
+  -ms-transition: all $timing ease-in-out;
+  -o-transition: all $timing ease-in-out;
+  transition: all $timing ease-in-out;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+::-moz-selection, ::selection {
+  background: none;
+  outline:none;
+}
+
+$font-stack: 'Montserrat', sans-serif;
+
+body{font-family: $font-stack; font-weight: 400;background:$black; color: $white;}
+
+h1, h2, h3, h4, h5{font-weight:700;}
+
+img{max-width:300px;}
+
+.app{margin:auto;}
+
+.login__header{
+  padding:20px;
+  text-align:center;
+  width:100%;
+  background: $grey;
+  h1{
+    margin: 20px auto;
+    text-align:center;
+    color: $white;
+  }
+}
+
+.spotify-logo{
+  max-height: 60px;
+}
+
+button{
+    text-transform:uppercase;
+    margin:20px auto;
+    padding: 10px 30px;
+    background: $green;
+    color: white;
+    text-align:center;
+    border:none;
+    font-size: 12px;
+    border-radius:30px;
+    font-weight:500;
+    @include all-ease-in(350ms);
+    &:hover{
+      background: $lightgreen;
+      transform:scale(1.05);
+      @include all-ease-in(350ms);
+    }
+    &.white{
+      background: white;
+      color:$black;
+    }  
+  }
+
+.now-playing{
+  text-align:center;
+  color: $white;
+  *{display:block; margin: auto;}
+  &.container{
+    background: $black;
+    padding: 20px 0  
+  }
+  &.card{ max-width:300px;}
+  &.header{
+    font-size:25px;
+    margin: 20px 0;
+    span{font-weight:400; font-size: 20px; margin-top:5px; line-height: 25px;}
+  }
+  &.artwork{}
+  &.artist{
+      margin: 10px auto;
+      a{
+          color: $textgrey;
+          font-weight:400;
+          font-size:20px;
+          &:hover{color:$white;}
+      }
+  }
+  &.album{font-size:20px; font-weight:400;}
+  &.button{ margin: 20px auto;}
+  
+
+}
+
+.footer{
+  padding: 10px 30px;
+  position:fixed;
+  bottom: 0;
+  left:0;
+  right:0;
+  width:100%;
+  height:50px;
+  vertical-align:text-bottom;
+  background: $lightgrey;
+  h4{
+    display:inline;
+    font-size: 14px;
+    font-weight: 400;
+    a{color: $green;}
+    &:nth-child(1){float:left;}
+    &:nth-child(2){
+      float:right;
+      a{margin: 0 10px;}
+    }
+  }
+}
